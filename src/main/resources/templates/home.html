@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Daftar Buku Perpustakaan</title>
+
+        <script src="./js/angular.min.js"></script>
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+
+        <script src="./js/perpus-app.js"></script>
+        <script src="./js/daftar-controller.js"></script>
+    </head>
+    <body class="container">
+        <div class="jumbotron">
+            <h1>DAFTAR BUKU PERPUSTAKAAN</h1>
+        </div>
+        <div ng-app="PerpusApp">
+            <div ng-controller="DaftarController">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID BUKU</th>
+                            <th>JUDUL BUKU</th>
+                            <th>PENULIS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="perpus in daftarPerpus">
+                            <td>{{ perpus.id_buku }}</td>
+                            <td>{{ perpus.judul_buku }}</td>
+                            <td>{{ perpus.penulis }}</td>
+                            <td>
+                                <button class="btn btn-warning"
+                                        ng-click="edit(perpus)">
+                                    Ubah
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" ng-click="delete(perpus)"> Hapus </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <button class="btn btn-primary" ng-click="add()">Tambah</button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

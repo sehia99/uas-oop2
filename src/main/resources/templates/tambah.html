@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Form Tambah Data BUKU</title>
+
+        <script src="./js/angular.min.js"></script>
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+
+        <script src="./js/perpus-app.js"></script>
+        <script src="./js/tambah-controller.js"></script>
+    </head>
+    <body class="container" ng-app="PerpusApp">
+        <div class="jumbotron">
+            <h1>TAMBAH DATA BUKU</h1>
+        </div>
+
+        <div ng-controller="TambahController">
+            <form name="buku">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">ID BUKU</label>
+                    <input type="number" name="id_buku" class="col-sm-4 form-control"
+                           placeholder="ID BUKU" ng-model="perpus.id_buku" required="true" />
+                    <div role="alert">
+    <span class="error" ng-show="buku.id_buku.$error.required">
+      Form Tidak Boleh Kosong!</span>
+    <span class="error" ng-show="buku.id_buku.$error.number">
+      Hanya Input Angka!</span>
+  </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">JUDUL BUKU</label>
+                    <input type="text" class="col-sm-4 form-control" 
+                            placeholder="JUDUL BUKU" ng-model="perpus.judul_buku" />
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">PENULIS</label>
+                    <input type="text" class="col-sm-4 form-control" 
+                            placeholder="PENULIS" ng-model="perpus.penulis" />
+                </div>
+                <div class="form-group row">
+                    <button ng-disabled="buku.$invalid" class="btn btn-primary col-pr-2" ng-click="simpan()">
+                        Simpan
+                    </button>
+                    <button class="btn btn-warning col-sm-2" ng-click="batal()">
+                        Batal
+                    </button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
